@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fresh Coffee</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <h1 class="logo1">Fresh Coffee</h1>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="product.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Banner with Typing Effect -->
+    <section class="banner">
+      <div class="banner-text">
+        <h2 id="typing-text"></h2>
+        <p>Your perfect cup is just a sip away ☕️</p>
+      </div>
+    </section>
+
+    <!-- Product Cards -->
+    <section class="products">
+      <h3>Our Coffees</h3>
+      <div class="product-container">
+        <div class="card">
+          <a href="product.html"
+            ><img src="img/images (1).jpg" alt="Espresso"
+          /></a>
+          <h4>Espresso</h4>
+          <p>Strong and bold espresso to kickstart your day.</p>
+        </div>
+        <div class="card">
+          <a href="product.html"
+            ><img
+              src="img/images (2).jpg"
+              height="260px"
+              width="250px"
+              alt="Latte"
+          /></a>
+          <h4>Latte</h4>
+          <p>Warm, milky, and smooth for a cozy afternoon.</p>
+        </div>
+        <div class="card">
+          <a href="product.html"
+            ><img src="img/images.jpg" alt="Cappuccino"
+          /></a>
+          <h4>Cappuccino</h4>
+          <p>A rich blend of espresso, steamed milk, and foam.</p>
+        </div>
+      </div>
+
+      <!-- Coffee Information Sidebar -->
+      <aside class="coffee-info">
+        <h3>About Our Coffee</h3>
+        <p>
+          At Fresh Coffee, we source only the finest Arabica beans from
+          sustainable farms. Each cup is brewed with precision and passion to
+          bring out rich aromas and bold flavors.
+        </p>
+        <ul>
+          <li>✔ 100% Organic Beans</li>
+          <li>✔ Locally Roasted</li>
+          <li>✔ Barista-Crafted Drinks</li>
+          <li>✔ Eco-Friendly Packaging</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2025 Fresh Coffee. All rights reserved.</p>
+    </footer>
+
+    <!-- Typing Animation Script -->
+    <script>
+      const texts = [
+        "Welcome to Fresh Coffee",
+        "The best beans in town",
+        "Brewed fresh every day",
+        "Sip. Smile. Repeat ☕️",
+      ];
+
+      let index = 0;
+      let charIndex = 0;
+      let typingElement = document.getElementById("typing-text");
+
+      function typeEffect() {
+        if (charIndex < texts[index].length) {
+          typingElement.innerHTML += texts[index].charAt(charIndex);
+          charIndex++;
+          setTimeout(typeEffect, 100);
+        } else {
+          setTimeout(eraseEffect, 1500);
+        }
+      }
+
+      function eraseEffect() {
+        if (charIndex > 0) {
+          typingElement.innerHTML = texts[index].substring(0, charIndex - 1);
+          charIndex--;
+          setTimeout(eraseEffect, 50);
+        } else {
+          index = (index + 1) % texts.length;
+          setTimeout(typeEffect, 500);
+        }
+      }
+
+      window.onload = typeEffect;
+    </script>
+  </body>
+</html>
